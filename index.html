@@ -1,0 +1,120 @@
+Here’s the prompt for the pronunciation checker game: Create a browser-based pronunciation obstacle game for ESL students.
+
+GAME CONCEPT
+The game is inspired by TikTok obstacle pronunciation games. A small animated car drives through a colourful cartoon city. When the car reaches an obstacle, a sentence appears on the screen. The player must read the sentence aloud.
+
+If the pronunciation is correct, the car passes the obstacle and the player earns points. The player must then manually click a "Next Level" button to continue to the next sentence.
+
+If pronunciation is incorrect, the car crashes and the player must retry.
+
+TOPIC
+Towns and Cities (simple ESL vocabulary with adjectives).
+
+SENTENCES
+Store these sentences in an array:
+
+1. The park is big and green.
+2. The library is quiet and clean.
+3. The market is busy and noisy.
+4. The shopping mall is huge and bright.
+5. The museum is old and interesting.
+6. The hospital is big and modern.
+7. The cinema is dark and comfortable.
+8. The playground is fun and colourful.
+9. The train station is busy and loud.
+10. The city park is peaceful and beautiful.
+
+GAME STRUCTURE
+
+* Use a variable called currentLevel to track progress.
+* Display the sentence for the current level.
+* Do NOT automatically move to the next level.
+* After correct pronunciation, display a "Next Level" button.
+* Only move to the next sentence when the player clicks the button.
+* Hide the "Next Level" button until the answer is correct.
+* The game must continue through all sentences.
+* Only show the "Game Complete" screen after the final level.
+
+SCORING SYSTEM
+
+* Start with a score of 0.
+* Each correct pronunciation earns +10 points.
+* Display the score clearly on the screen.
+* Incorrect pronunciation does not change the score.
+* Allow unlimited retries.
+* Show the final score when the game finishes.
+
+PROGRESS DISPLAY
+
+* Show Level indicator (Level 1 / 10).
+* Show a progress bar representing the car's distance to the finish line.
+
+SPEECH RECOGNITION
+Use the browser Web Speech API.
+
+PRONUNCIATION TOLERANCE
+Do not require exact sentence matching.
+Compare the spoken result with the target sentence and allow small differences.
+
+Accept the answer if similarity is approximately 80–90%.
+
+MICROPHONE DESIGN
+Use a Push-To-Talk microphone system.
+
+Game flow:
+
+1. Player presses the microphone button.
+2. Speech recognition starts.
+3. Player reads the sentence.
+4. Recognition stops automatically after speaking.
+
+NOISE REDUCTION
+Enable microphone audio constraints:
+
+navigator.mediaDevices.getUserMedia({
+audio: {
+noiseSuppression: true,
+echoCancellation: true,
+autoGainControl: true
+}
+})
+
+Additional handling:
+
+* Ignore background sounds shorter than 1 second.
+* Require at least 2 seconds of speech before evaluating.
+* If speech is too short, display: "Please speak clearly and try again."
+
+VISUAL DESIGN
+
+* Cartoon city background
+* Small animated car moving across the screen
+* Obstacles before each sentence
+* Car passes obstacle when correct
+* Funny crash animation when incorrect
+
+FEEDBACK
+Show messages:
+
+* "Correct! +10 points"
+* "Try again"
+* "Please speak clearly"
+
+INTERACTION BUTTONS
+
+* Microphone button
+* Retry button
+* "Next Level" button (appears only after correct pronunciation)
+
+SOUND EFFECTS
+
+* Success sound when passing obstacle
+* Crash sound when pronunciation fails
+
+TECHNICAL REQUIREMENTS
+
+* Output everything in ONE complete HTML file.
+* Use HTML, CSS, and JavaScript only.
+* The game must run directly in a browser.
+* Mobile friendly for students using phones.
+* Ensure the game waits for the user to click "Next Level" before progressing.
